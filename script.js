@@ -8,7 +8,9 @@ let coll = null;
 
 // Function executed by the LOGIN button.
 const login = async () => {
-    const credentials = Realm.Credentials.anonymous();
+    const email = $('#email').val();
+    const password = $('#password').val();
+    const credentials = Realm.Credentials.emailPassword(email, password);
     try {
         const user = await app.logIn(credentials);
         $('#userid').empty().append(user.id); // update the user div with the user ID
@@ -19,6 +21,7 @@ const login = async () => {
         console.error("Failed to log in", err);
     }
 };
+
 
 // Function executed by the INSERT button.
 const insert_todo = async () => {

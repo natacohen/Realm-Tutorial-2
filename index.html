@@ -12,11 +12,18 @@
 <body>
 <h1>My Todo List</h1>
 <div>
-    <!-- Login anonymously -->
-    <input type="submit" value="LOGIN" onClick="login()">
+    <!-- Login with email and password -->
+    <form id="loginForm" onsubmit="return false;">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit" onclick="login()">Login</button>
+    </form>
     <!-- Finds todos in todos collection -->
     <input type="submit" value="FIND" onClick="find_todos()">
 </div>
+
 
 <form id="todoForm" onsubmit="return false;">
     <label for="taskInput">Task:</label>
@@ -25,6 +32,7 @@
     <button type="submit" onclick="toggle_todo()">Toggle</button>
     <button type="submit" onclick="delete_todo()">Delete</button>
 </form>
+
 
 <!-- Using this div to display the user ID -->
 <div id="user">
